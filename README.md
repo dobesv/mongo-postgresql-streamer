@@ -57,6 +57,16 @@ Alternatively, you can use a configuration file (in yml or properties format) li
   java -jar -Dspring.config.location=<path-to-file> target/mongo-postgresql-streamer*.jar 
 ```
 
+## Run using docker
+
+You can run this without building and installing yourself by using docker.  For example, create
+`path/to/config/mappings.json` with mappings in it and create `path/to/config/config.yml` with 
+with your database connection information.  Then use the docker image built from this repository:
+
+```bash
+docker run  -v path/to/config:/opt/config dobesv/mongo-postgresql-streamer:latest
+```
+
 ## Options
 
 |Option   | Default value   | description  |

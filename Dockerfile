@@ -6,3 +6,8 @@ RUN mvn package -DskipTests
 
 FROM openjdk:8-jre
 COPY --from=MAVEN_TOOL_CHAIN /tmp/target/*.jar /opt/jars/
+
+CMD java \
+  -Dspring.config.location=/opt/config/config.yml \
+  -jar /opt/jars/mongo-postgresql-streamer-0.0.1-SNAPSHOT.jar \
+  --mappings=/opt/config/mappings.json
